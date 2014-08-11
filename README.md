@@ -48,13 +48,13 @@ To draw cards
 Once a card is drawn it is no longer in the deck.
 
 
-You can also split a deck into two decks
+You can split a deck into two decks
 
     new_deck = deck.split
     #and recombine them
     deck.combine(new_deck)
 
-You can also decide how to recombine them. (Helpful if you need to shuffle them)
+You can also decide how to recombine them. (Helpful if you need to shuffle)
 
      deck.combine deck2 do |cards, cards_other|
         cards.zip(cards_other).flatten.compact

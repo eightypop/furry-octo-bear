@@ -20,8 +20,6 @@ Or install it yourself as:
 
     require 'DeckOfCards'
 
-### to create a deck of cards
-
 A card is represented via a hash of attributes.
 
     DeckOfCards::Card.new({ :color => :blue, :type => :skip }) #uno!

@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.name          = "DeckOfCards"
   spec.version       = DeckOfCards::VERSION
   spec.authors       = ["Matt Thompson"]
-  spec.email         = ["mthompson@deedod.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.email         = ["whatknight@gmail.com"]
+  spec.summary       = "A library that provides a deck of cards"
+  spec.description   = ""
   spec.homepage      = ""
   spec.license       = "MIT"
 

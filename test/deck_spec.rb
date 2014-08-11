@@ -73,6 +73,17 @@ describe DeckOfCards::Deck do
 
   end
 
+  it 'can be combined with another deck via closure' do
+    deck = DeckOfCards::Deck.new(DeckOfCards::face_cards)
+    deck2 = DeckOfCards::Deck.new(DeckOfCards::face_cards)
+    deck.combine deck2 do |cards, cards_other|
+      cards.zip(cards_other).flatten.compact
+    end
+    deck.count.must_equal 32
+    deck2.count.must_equal 0
+
+  end
+
   it 'can be split into smaller decks' do
     deck = DeckOfCards::Deck.new(DeckOfCards::face_cards)
     new_deck = deck.split

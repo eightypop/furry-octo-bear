@@ -29,8 +29,6 @@ module DeckOfCards
 
   class Deck
 
-    attr_accessor :cards
-
     # params: take an array of cards as a deck
     def initialize (cards = [])
       @cards = cards
@@ -62,7 +60,7 @@ module DeckOfCards
 
     #insert_random
     # inserts a card into a random place in the deck
-    def insert_random (card)
+    def insert_random(card)
       @cards.insert(Random.new().rand(0...@cards.count), card)
     end
 
@@ -72,10 +70,21 @@ module DeckOfCards
       @cards.count
     end
 
+    #empty
+    # removes all the cards from the deck and returns them as an array
+    def empty
+      @cards.shift(@cards.size)
+    end
+
     #combine
     # takes the cards from another deck and puts them in this deck
-    def combine (deck)
-        @cards.zip(deck.cards.shift(deck.count))
+    def combine(deck)
+      if block_given?
+        @cards = yield(@cards, deck.empty)
+      else
+        @cards.concat(deck.empty)
+      end
+
     end
 
     #peek
@@ -87,7 +96,7 @@ module DeckOfCards
     #split
     # cuts the deck in half based on how many cards the new deck should have.
     # if there is no number specified the deck is cut in half
-    def split (how_many =  self.count/2)
+    def split(how_many =  self.count/2)
       Deck.new(@cards.shift(how_many))
     end
 
